@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand" style="font-family: 'Merriweather', serif;">Loans Prediction</a>
+    </div>
+
+    <div class="navbar-default">
+      <app-navigate
+      *ngFor="let navigateEl of navList"
+      [navigateItem]="navigateEl">
+      </app-navigate>
+
+    </div>
+  </div>
+</nav>
