@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Navigate} from './navigate.model';
 
 @Component({
   selector: 'app-navigate',
@@ -6,7 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./navigate.component.css']
 })
 export class NavigateComponent implements OnInit {
-  @Input() navigateItem: string;
+
+  @Input() navigateItem: Navigate;
 
   constructor() { }
 

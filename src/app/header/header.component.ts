@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   preLogin = ['Log In'];
-  workerLogin = ['Worker'];
+  workerLogin = [{
+    tag: 'New Loan',
+    route: '/new-loan'
+  }];
   managerLogin = ['Manager'];
   adminLogin = ['Admin'];
 
-  navList = this.preLogin;
+  navList = this.workerLogin;
 
   constructor() { }
 
