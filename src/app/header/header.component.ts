@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Navigate} from './navigate/navigate.model';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +7,11 @@ import {Navigate} from './navigate/navigate.model';
 })
 export class HeaderComponent implements OnInit {
   preLogin = ['Log In'];
-  workerLogin = [new Navigate('New Loan', '/new-loan')];
-  managerLogin = ['Manager'];
+  workerLogin = [{tag: 'New Loan', route: '/new-loan'}];
+  managerLogin = [{tag: 'New Loan', route: '/new-loan'}, {tag: 'Loans Tracking', route: '/loans-trace'}];
   adminLogin = ['Admin'];
 
-  navList = this.workerLogin;
+  navList = this.managerLogin;
 
   constructor() { }
 

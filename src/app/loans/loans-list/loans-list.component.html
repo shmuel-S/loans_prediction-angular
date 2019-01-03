@@ -1,0 +1,11 @@
+<div class="row" style="width: 800px; font-family: 'Merriweather', serif;">
+  <div class="col-xs-12">
+    <div class="page-header">
+      <h2 class="col-xs-offset-4">Loans Tracking</h2>
+    </div>
+    <app-loan-item
+      *ngFor="let loanEl of Loans; let i=index"
+      [loan]="loanEl"
+      [index]="i"></app-loan-item>
+  </div>
+</div>

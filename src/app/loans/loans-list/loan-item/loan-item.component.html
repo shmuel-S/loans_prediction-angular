@@ -1,0 +1,18 @@
+<a
+  style="cursor: pointer;"
+  href="#"
+  routerLinkActive="active"
+  class="list-group-item clearfix"
+  style="border: none; width: 820px;">
+  <div class="pull-left" style="font-family: 'Merriweather', serif;">
+    <div class="panel panel-default" >
+      <div class="panel-heading" style="font-weight: bold">{{ loan.Full_Name }}</div>
+      <div class="panel-body" style="display: flex; flex-direction: row;">
+        <h5>Status: {{loan.Loan_Status}} ,</h5>
+        <h5>Amount: {{loan.Current_Loan_Amount}} ,</h5>
+        <h5>Purpose: {{loan.Purpose}} ,</h5>
+        <h5>Term: {{loan.Term}} .</h5>
+      </div>
+    </div>
+  </div>
+</a>

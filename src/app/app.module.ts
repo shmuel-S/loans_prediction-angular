@@ -9,6 +9,8 @@ import { NewLoanComponent } from './loans/new-loan/new-loan.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LoanService} from './loans/loan.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { LoansListComponent } from './loans/loans-list/loans-list.component';
+import { LoanItemComponent } from './loans/loans-list/loan-item/loan-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HeaderComponent,
     NavigateComponent,
     LoansComponent,
-    NewLoanComponent
+    NewLoanComponent,
+    LoansListComponent,
+    LoanItemComponent
   ],
   imports: [
     BrowserModule,

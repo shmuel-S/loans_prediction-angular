@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Navigate} from './navigate.model';
+
 
 @Component({
   selector: 'app-navigate',
@@ -8,7 +8,7 @@ import {Navigate} from './navigate.model';
 })
 export class NavigateComponent implements OnInit {
 
-  @Input() navigateItem: Navigate;
+  @Input() navigateItem: {tag: string, route: string};
 
   constructor() { }
 
