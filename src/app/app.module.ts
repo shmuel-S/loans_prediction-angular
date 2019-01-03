@@ -7,6 +7,8 @@ import { NavigateComponent } from './header/navigate/navigate.component';
 import { LoansComponent } from './loans/loans.component';
 import { NewLoanComponent } from './loans/new-loan/new-loan.component';
 import {AppRoutingModule} from './app-routing.module';
+import {LoanService} from './loans/loan.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,11 @@ import {AppRoutingModule} from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LoanService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

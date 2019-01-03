@@ -43,7 +43,4 @@ export class Loan {
     this.Bankruptcies = Bankruptcies;
 
   }
-
-
-  
 }
