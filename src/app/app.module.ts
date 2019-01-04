@@ -11,6 +11,7 @@ import {LoanService} from './loans/loan.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoansListComponent } from './loans/loans-list/loans-list.component';
 import { LoanItemComponent } from './loans/loans-list/loan-item/loan-item.component';
+import { NewUserComponent } from './users/new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoanItemComponent } from './loans/loans-list/loan-item/loan-item.compon
     LoansComponent,
     NewLoanComponent,
     LoansListComponent,
-    LoanItemComponent
+    LoanItemComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,

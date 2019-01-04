@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LoanService} from '../loan.service';
+import { Router } from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Loan} from '../loan.model';
 
@@ -12,7 +13,8 @@ export class NewLoanComponent implements OnInit {
 
   loanForm: FormGroup;
 
-  constructor(private loanService: LoanService) { }
+  constructor(private loanService: LoanService,
+              private router: Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -22,6 +24,9 @@ export class NewLoanComponent implements OnInit {
   onSubmit() {
     console.log(this.loanForm);
     this.loanService.addLoan(this.loanForm.value);
+    this.router.navigate(['/']);
+
+
   }
 
   private initForm() {

@@ -9,9 +9,9 @@ export class HeaderComponent implements OnInit {
   preLogin = ['Log In'];
   workerLogin = [{tag: 'New Loan', route: '/new-loan'}];
   managerLogin = [{tag: 'New Loan', route: '/new-loan'}, {tag: 'Loans Tracking', route: '/loans-trace'}];
-  adminLogin = ['Admin'];
+  adminLogin = [{tag: 'New User', route: '/new-user'}];
 
-  navList = this.managerLogin;
+  navList = this.adminLogin;
 
   constructor() { }
 
