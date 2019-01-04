@@ -12,6 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoansListComponent } from './loans/loans-list/loans-list.component';
 import { LoanItemComponent } from './loans/loans-list/loan-item/loan-item.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
+import {UserService} from './users/user.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { NewUserComponent } from './users/new-user/new-user.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [LoanService],
+  providers: [LoanService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

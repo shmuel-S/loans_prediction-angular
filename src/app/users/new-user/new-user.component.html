@@ -5,7 +5,7 @@
 
   <div class="raw">
     <div class="col-xs-12" style="width: 700px;">
-      <form style="padding-left: 30px;">
+      <form [formGroup]="userForm" style="padding-left: 30px;" (ngSubmit)="onSubmit()">
         <hr>
 
         <div class="row">
@@ -15,6 +15,7 @@
               <input
                 type="text"
                 id="Full_Name"
+                formControlName="Full_Name"
                 class="form-control">
             </div>
           </div>
@@ -27,6 +28,7 @@
               <input
                 type="email"
                 id="Email"
+                formControlName="Email"
                 class="form-control">
             </div>
           </div>
@@ -39,19 +41,21 @@
               <input
                 type="password"
                 id="Password"
+                formControlName="Password"
                 class="form-control">
             </div>
           </div>
 
-            <div class="col-xs-12">
-              <div class="form-group">
-                <label for="Confirm_Password">Confirm Password</label>
-                <input
-                  type="password"
-                  id="Confirm_Password"
-                  class="form-control">
-              </div>
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="Confirm_Password">Confirm Password</label>
+              <input
+                type="password"
+                id="Confirm_Password"
+                formControlName="Confirm_Password"
+                class="form-control">
             </div>
+          </div>
         </div>
 
 
@@ -62,6 +66,7 @@
               <select
                 type="text"
                 id="Permission"
+                formControlName="Permission"
                 class="form-control">
                 <option value="" disabled="disabled">Permission</option>
                 <option value="Worker">Worker</option>
@@ -72,5 +77,13 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-md-offset-5" style="padding-top: 15px; padding-left: 20px;">
+            <button type="submit" class="btn btn-basic">Create</button>
+          </div>
+        </div>
+
       </form>
     </div>
+  </div>
+</div>
