@@ -13,6 +13,8 @@ import { LoansListComponent } from './loans/loans-list/loans-list.component';
 import { LoanItemComponent } from './loans/loans-list/loan-item/loan-item.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
 import {UserService} from './users/user.service';
+import { UsersListComponent } from './users/users-list/users-list.component';
+import { UserItemComponent } from './users/users-list/user-item/user-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {UserService} from './users/user.service';
     NewLoanComponent,
     LoansListComponent,
     LoanItemComponent,
-    NewUserComponent
+    NewUserComponent,
+    UsersListComponent,
+    UserItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<span
+  style="cursor: pointer;"
+  href="#"
+  routerLinkActive="active"
+  class="list-group-item clearfix"
+  style="border: none; width: 820px;">
+  <div class="pull-left" style="font-family: 'Merriweather', serif;">
+    <div class="panel panel-default" style="width: 830px;">
+      <div class="panel-heading" style="font-weight: bold">{{ user.Full_Name }}</div>
+      <div class="panel-body" style="display: flex; flex-direction: row;">
+        <h5>Email: {{user.Email}} ,</h5>
+        <h5>Permission: {{user.Permission}} ,</h5>
+        <h5>Password: {{user.Password}} .</h5>
+
+        <div style="padding-left: 20px;">
+          <button class="btn btn-primary">Update</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</span>

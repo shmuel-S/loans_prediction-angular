@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../user.model';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class NewUserComponent implements OnInit {
   userForm: FormGroup;
   NewUser: User;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -27,6 +29,7 @@ export class NewUserComponent implements OnInit {
     if (this.NewUser.Password === this.NewUser.Confirm_Password) {
       this.userService.addUser(this.NewUser);
       console.log(this.userForm);
+      this.router.navigate(['/']);
     } else {
       console.log('Password not confirm');
     }
