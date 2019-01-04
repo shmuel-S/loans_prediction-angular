@@ -21,7 +21,7 @@ export class NewLoanComponent implements OnInit {
 
   onSubmit() {
     console.log(this.loanForm);
-    // this.loanService.addLoan(this.loanForm.value);
+    this.loanService.addLoan(this.loanForm.value);
   }
 
   private initForm() {
