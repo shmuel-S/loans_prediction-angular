@@ -15,6 +15,8 @@ import { NewUserComponent } from './users/new-user/new-user.component';
 import {UserService} from './users/user.service';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserItemComponent } from './users/users-list/user-item/user-item.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { UserItemComponent } from './users/users-list/user-item/user-item.compon
     LoanItemComponent,
     NewUserComponent,
     UsersListComponent,
-    UserItemComponent
+    UserItemComponent,
+    DropdownDirective,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

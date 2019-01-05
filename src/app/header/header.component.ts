@@ -11,6 +11,8 @@ export class HeaderComponent implements OnInit {
   managerLogin = [{tag: 'New Loan', route: '/new-loan'}, {tag: 'Loans Tracking', route: '/loans-trace'}];
   adminLogin = [{tag: 'New User', route: '/new-user'}, {tag: 'Users List', route: '/users-list'}];
 
+  isLogedIn = false;
+
   navList = this.adminLogin;
 
   constructor() { }

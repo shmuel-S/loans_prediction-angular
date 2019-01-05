@@ -1,15 +1,26 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="font-weight: bold">
   <div class="container-fluid">
     <div class="navbar-header">
       <a href="#" class="navbar-brand" style="font-family: 'Merriweather', serif;">Loans Prediction</a>
     </div>
 
-    <div class="navbar-default">
-      <app-navigate
-      *ngFor="let navigateEl of navList"
-      [navigateItem]="navigateEl">
-      </app-navigate>
 
+    <div class="navbar-default">
+        <app-navigate
+          *ngFor="let navigateEl of navList"
+          [navigateItem]="navigateEl">
+        </app-navigate>
+
+      <ul class="nav navbar-nav navbar-right" style="font-family: 'Merriweather', serif;">
+        <li><a href="#" *ngIf="isLogedIn">Log Out</a></li>
+        <li class="dropdown" appDropdown>
+          <a href="#" style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" style="cursor: pointer;">Save Data</a></li>
+            <li><a href="#" style="cursor: pointer;">Fetch Data</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
