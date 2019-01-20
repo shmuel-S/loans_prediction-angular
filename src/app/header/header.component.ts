@@ -1,23 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LoginService} from '../login/login.service';
+import {User} from '../users/user.model';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  preLogin = ['Log In'];
+export class HeaderComponent implements OnInit  {
+  preLogin = [{tag: 'Log In', route: '/log-in'}];
   workerLogin = [{tag: 'New Loan', route: '/new-loan'}];
   managerLogin = [{tag: 'New Loan', route: '/new-loan'}, {tag: 'Loans Tracking', route: '/loans-trace'}];
   adminLogin = [{tag: 'New User', route: '/new-user'}, {tag: 'Users List', route: '/users-list'}];
 
   isLogedIn = false;
+  user: User;
 
-  navList = this.adminLogin;
+  navList = this.preLogin;
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
+
 
 }

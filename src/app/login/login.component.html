@@ -6,7 +6,7 @@
   <div class="col-xs-12">
     <div class="raw">
       <div class="col-xs-12" style="width: 700px;">
-        <form style="padding-left: 15px;">
+        <form [formGroup]="loginForm" style="padding-left: 15px;" (ngSubmit)="onSubmit()">
           <hr>
 
           <div class="row">

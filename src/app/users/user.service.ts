@@ -24,6 +24,8 @@ export class UserService {
     return this.users.slice();
   }
 
-
+  getUser(index: number) {
+    return this.users[index];
+  }
 
 }
