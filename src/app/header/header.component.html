@@ -12,7 +12,9 @@
         </app-navigate>
 
       <ul class="nav navbar-nav navbar-right" style="font-family: 'Merriweather', serif;">
-        <li><a href="#" *ngIf="isLogedIn">Log Out</a></li>
+        <li class="nav-item"*ngIf="isLoggedIn">
+          <a class="navbar-link" routerLink="logout" (click)="logout()">Log Out</a>
+        </li>
         <li class="dropdown" appDropdown>
           <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">

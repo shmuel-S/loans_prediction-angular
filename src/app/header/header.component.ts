@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from '../login/login.service';
-import {User} from '../users/user.model';
+import {NavigateService} from './navigate/navigate.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,20 +8,25 @@ import {User} from '../users/user.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit  {
-  preLogin = [{tag: 'Log In', route: '/log-in'}];
-  workerLogin = [{tag: 'New Loan', route: '/new-loan'}];
-  managerLogin = [{tag: 'New Loan', route: '/new-loan'}, {tag: 'Loans Tracking', route: '/loans-trace'}];
-  adminLogin = [{tag: 'New User', route: '/new-user'}, {tag: 'Users List', route: '/users-list'}];
 
-  isLogedIn = false;
-  user: User;
+  navList =  Array<{ tag: string, route: string}>();
+  isLoggedIn = false;
 
-  navList = this.preLogin;
-
-  constructor(private loginService: LoginService) { }
+  constructor(private router: Router, private navigateService: NavigateService) { }
 
   ngOnInit() {
+    this.navList = this.navigateService.getNavList();
+    this.navigateService.getLoginStatus().subscribe(status => this.isLoggedIn = status);
   }
 
+  logout() {
+    this.navigateService.updateLoginStatus(false);
+    this.router.navigate(['/']);
+  }
 
 }
+
+// preLogin = [{tag: 'Log In', route: '/log-in'}];
+// workerLogin = [{tag: 'New Loan', route: '/new-loan'}];
+// managerLogin = [{tag: 'New Loan', route: '/new-loan'}, {tag: 'Loans Tracking', route: '/loans-trace'}];
+// adminLogin = [{tag: 'New User', route: '/new-user'}, {tag: 'Users List', route: '/users-list'}];

@@ -1,8 +1,7 @@
-import {Injectable, Input} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {User} from '../users/user.model';
 
 import {UserService} from '../users/user.service';
-
 
 @Injectable()
 export class LoginService {
@@ -11,6 +10,7 @@ export class LoginService {
 
   constructor(private userService: UserService) {
   }
+
 
   logIn(user: User) {
     this.LogedInUser = user;

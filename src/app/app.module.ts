@@ -18,6 +18,7 @@ import { UserItemComponent } from './users/users-list/user-item/user-item.compon
 import { DropdownDirective } from './shared/dropdown.directive';
 import { LoginComponent } from './login/login.component';
 import {LoginService} from './login/login.service';
+import {NavigateService} from './header/navigate/navigate.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import {LoginService} from './login/login.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [LoanService, UserService, LoginService],
+  providers: [LoanService, UserService, LoginService, NavigateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
