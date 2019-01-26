@@ -19,6 +19,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { LoginComponent } from './login/login.component';
 import {LoginService} from './login/login.service';
 import {NavigateService} from './header/navigate/navigate.service';
+import {PermissionGuard} from './permission/premission-guard.service';
+
 
 @NgModule({
   declarations: [
@@ -39,9 +41,9 @@ import {NavigateService} from './header/navigate/navigate.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [LoanService, UserService, LoginService, NavigateService],
+  providers: [LoanService, UserService, LoginService, NavigateService, PermissionGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

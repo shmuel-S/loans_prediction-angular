@@ -5,12 +5,33 @@ import {LoansListComponent} from './loans/loans-list/loans-list.component';
 import {NewUserComponent} from './users/new-user/new-user.component';
 import {UsersListComponent} from './users/users-list/users-list.component';
 import {LoginComponent} from './login/login.component';
+import {PermissionGuard} from './permission/premission-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'new-loan', component: NewLoanComponent },
-  { path: 'loans-trace', component: LoansListComponent},
-  { path: 'new-user', component: NewUserComponent},
-  { path: 'users-list', component: UsersListComponent},
+  { path: 'new-user', component: NewUserComponent,
+    data: {
+      permissions: ['Admin']
+    },
+    canActivate: [PermissionGuard]},
+
+  { path: 'users-list', component: UsersListComponent,
+    data: {
+      permissions: ['Admin']
+    },
+    canActivate: [PermissionGuard]},
+
+  { path: 'new-loan', component: NewLoanComponent,
+    data: {
+      permissions: ['Worker', 'Manager']
+    },
+    canActivate: [PermissionGuard]},
+
+  { path: 'loans-list', component: LoansListComponent,
+    data: {
+      permissions: ['Manager']
+    },
+    canActivate: [PermissionGuard]},
+
   { path: 'log-in', component: LoginComponent}
 ]
 

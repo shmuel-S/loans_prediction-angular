@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {User} from '../users/user.model';
 
 import {UserService} from '../users/user.service';
+import {User} from '../users/user.model';
 
 @Injectable()
 export class LoginService {
@@ -17,7 +17,7 @@ export class LoginService {
   }
 
   getPermission() {
-    return this.LogedInUser.Permission;
+      return this.LogedInUser.Permission;
   }
 
   // getLogedinUser() {
@@ -32,11 +32,11 @@ export class LoginService {
   }
 
   check(loginUser: User) {
-    for (const user of this.userService.getUsers()) {
+    for ( const user of this.userService.getUsers()) {
       if (user.Email === loginUser.Email && user.Password === loginUser.Password) {
         return user;
       }
-      return undefined;
     }
+    return undefined;
   }
 }

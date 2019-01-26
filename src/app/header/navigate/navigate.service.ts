@@ -40,7 +40,7 @@ export class NavigateService {
       this.addItem({text: 'New Loan', path: '/new-loan'});
     } else if (role === 'Manager') {
       this.addItem({text: 'New Loan', path: '/new-loan'});
-      this.addItem({text: 'Loans Tracking', path: '/loans-trace'});
+      this.addItem({text: 'Loans List', path: '/loans-list'});
     } else if (role === 'Admin') {
       this.addItem({text: 'New User', path: '/new-user'});
       this.addItem({text: 'Users List', path: '/users-list'});

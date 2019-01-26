@@ -25,8 +25,3 @@ export class HeaderComponent implements OnInit  {
   }
 
 }
-
-// preLogin = [{tag: 'Log In', route: '/log-in'}];
-// workerLogin = [{tag: 'New Loan', route: '/new-loan'}];
-// managerLogin = [{tag: 'New Loan', route: '/new-loan'}, {tag: 'Loans Tracking', route: '/loans-trace'}];
-// adminLogin = [{tag: 'New User', route: '/new-user'}, {tag: 'Users List', route: '/users-list'}];
