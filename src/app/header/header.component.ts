@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigateService} from './navigate/navigate.service';
 import {Router} from '@angular/router';
+import {LoginService} from '../login/login.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,9 @@ export class HeaderComponent implements OnInit  {
   navList =  Array<{ tag: string, route: string}>();
   isLoggedIn = false;
 
-  constructor(private router: Router, private navigateService: NavigateService) { }
+  constructor(private router: Router,
+              private navigateService: NavigateService,
+              private loginService: LoginService) { }
 
   ngOnInit() {
     this.navList = this.navigateService.getNavList();
@@ -20,8 +23,7 @@ export class HeaderComponent implements OnInit  {
   }
 
   logout() {
-    this.navigateService.updateLoginStatus(false);
-    this.router.navigate(['/']);
+    this.loginService.logOut();
   }
 
 }

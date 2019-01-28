@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import {LoginService} from './login/login.service';
 import {NavigateService} from './header/navigate/navigate.service';
 import {PermissionGuard} from './permission/premission-guard.service';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {PermissionGuard} from './permission/premission-guard.service';
     UsersListComponent,
     UserItemComponent,
     DropdownDirective,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
