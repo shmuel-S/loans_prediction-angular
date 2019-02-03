@@ -12,21 +12,18 @@ export class UserService {
       Full_Name: 'Shmuel Shmila',
       Email: 'shmuelshmila0@gmail.com',
       Password: '123456',
-      Confirm_Password: '123456',
       Permission: 'Admin'
     },
     {
       Full_Name: 'david davido',
       Email: 'shmuelshmila1@gmail.com',
       Password: '1234567',
-      Confirm_Password: '1234567',
       Permission: 'Worker'
     },
     {
       Full_Name: 'moshe misha',
       Email: 'shmuelshmila2@gmail.com',
       Password: '12345678',
-      Confirm_Password: '12345678',
       Permission: 'Manager'
     }];
 

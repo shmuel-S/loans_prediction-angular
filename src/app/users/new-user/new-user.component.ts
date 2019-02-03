@@ -13,7 +13,6 @@ import {Router} from '@angular/router';
 export class NewUserComponent implements OnInit {
 
   userForm: FormGroup;
-  NewUser: User;
 
   constructor(private userService: UserService,
               private router: Router) {
@@ -24,11 +23,9 @@ export class NewUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.NewUser = this.userForm.value;
 
-    if (this.NewUser.Password === this.NewUser.Confirm_Password) {
-      this.userService.addUser(this.NewUser);
-      console.log(this.userForm);
+    if (this.userForm.value.Password === this.userForm.value.Confirm_Password) {
+      this.userService.addUser(this.userForm.value);
       this.router.navigate(['/']);
     } else {
       console.log('Password not confirm');
