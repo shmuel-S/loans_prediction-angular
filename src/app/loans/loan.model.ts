@@ -1,6 +1,7 @@
 export class Loan {
 
   public Full_Name: string;
+  public Approved: boolean;
   public Loan_Status: string;
   public Current_Loan_Amount: number;
   public Term: string;
@@ -18,13 +19,14 @@ export class Loan {
   public Number_of_Credit_Problems: number;
   public Bankruptcies: number;
 
-  constructor(Full_Name: string, Loan_Status: string, Current_Loan_Amount: number, Term: string, Credit_Score: number,
+  constructor(Full_Name: string, Approved: boolean, Loan_Status: string, Current_Loan_Amount: number, Term: string, Credit_Score: number,
               Years_in_current_job: string, Annual_Income: number, Home_Ownership: string, Monthly_Debt: number,
               Purpose: string, Years_of_Credit_History: number, Months_since_last_delinquent: number,
               Current_Credit_Balance: number, Number_of_Open_Accounts: number, Maximum_Open_Credit: number,
               Number_of_Credit_Problems: number, Bankruptcies: number) {
 
     this.Full_Name = Full_Name;
+    this.Approved = Approved;
     this.Loan_Status = Loan_Status;
     this.Current_Loan_Amount = Current_Loan_Amount;
     this.Term = Term;

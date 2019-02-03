@@ -8,7 +8,8 @@ export class LoanService {
   loansChanged = new Subject<Loan[]>();
   private loans: Loan[] = [{
     Full_Name: 'Shmuel Shmila',
-    Loan_Status: 'Charged Off',
+    Approved: undefined,
+    Loan_Status: '',
     Current_Loan_Amount: 1000000,
     Term: 'Short Term',
     Credit_Score: 1,
@@ -27,7 +28,8 @@ export class LoanService {
   },
     {
       Full_Name: 'Shmuel Shmila',
-      Loan_Status: 'Charged Off',
+      Approved: undefined,
+      Loan_Status: '',
       Current_Loan_Amount: 1000000,
       Term: 'Short Term',
       Credit_Score: 1,

@@ -32,6 +32,7 @@ export class NewLoanComponent implements OnInit {
   private initForm() {
     this.loanForm = new FormGroup({
       'Full_Name': new FormControl('', Validators.required),
+      'Approved': new FormControl('', Validators.required),
       'Loan_Status': new FormControl('', Validators.required),
       'Current_Loan_Amount': new FormControl('', Validators.required),
       'Term': new FormControl('', Validators.required),
