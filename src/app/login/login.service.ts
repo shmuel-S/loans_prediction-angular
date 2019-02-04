@@ -23,21 +23,23 @@ export class LoginService {
   }
 
   getPermission() {
+    if ( this.LogedInUser !== undefined) {
       return this.LogedInUser.Permission;
+    } else {
+      return 'guest';
+    }
   }
-
-  // getLogedinUser() {
-  //   return this.LogedInUser;
-  // }
 
   getLogedInName() {
     return this.LogedInUser.Full_Name;
   }
 
   check(loginUser: User) {
-    for ( const user of this.userService.getUsers()) {
-      if (user.Email === loginUser.Email && user.Password === loginUser.Password) {
-        return user;
+    if ( loginUser !== undefined && this.userService.getUsers() !== undefined) {
+      for (const user of this.userService.getUsers()) {
+        if (user.Email === loginUser.Email && user.Password === loginUser.Password) {
+          return user;
+        }
       }
     }
     return undefined;
@@ -52,4 +54,5 @@ export class LoginService {
     this.router.navigate(['/']);
     location.reload();
   }
+
 }
