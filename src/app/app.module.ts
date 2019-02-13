@@ -21,6 +21,8 @@ import {LoginService} from './login/login.service';
 import {NavigateService} from './header/navigate/navigate.service';
 import {PermissionGuard} from './permission/premission-guard.service';
 import { HomeComponent } from './home/home.component';
+import {DataStorageService} from './shared/data-storage.service';
+import {HttpModule} from '@angular/http';
 
 
 @NgModule({
@@ -44,8 +46,9 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [LoanService, UserService, LoginService, NavigateService, PermissionGuard],
+  providers: [LoanService, UserService, LoginService, NavigateService, PermissionGuard, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

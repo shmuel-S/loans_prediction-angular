@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
+import { Response} from '@angular/http';
 import {LoanService} from '../loan.service';
 import { Router } from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Loan} from '../loan.model';
+import {DataStorageService} from '../../shared/data-storage.service';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-new-loan',
   templateUrl: './new-loan.component.html',
   styleUrls: ['./new-loan.component.css']
 })
+@Injectable()
 export class NewLoanComponent implements OnInit {
 
   loanForm: FormGroup;
 
   constructor(private loanService: LoanService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService: DataStorageService) {}
 
   ngOnInit() {
     this.initForm();
@@ -22,8 +26,14 @@ export class NewLoanComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.loanForm);
+    this.loanForm.value.Id = UUID.UUID();
     this.loanService.addLoan(this.loanForm.value);
+    this.dataStorageService.saveLoans()
+      .subscribe(
+        (response: Response) => {
+          console.log(response);
+        }
+      );
     this.router.navigate(['/']);
 
 

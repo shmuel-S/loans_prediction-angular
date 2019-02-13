@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
       this.loginService.logIn(this.LoginUser);
       this.login(this.LoginUser.Permission);
       this.router.navigate(['/']);
-      console.log(this.LoginUser);
     } else {
       console.log('email or password are incorrect');
     }

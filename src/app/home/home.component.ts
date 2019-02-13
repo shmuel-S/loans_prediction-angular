@@ -24,8 +24,7 @@ export class HomeComponent implements OnInit {
     if (!this.loginService.isLoggedInCheck()) {
       return 'Welcome guest you are not log in';
     } else {
-      const now = new Date().toLocaleTimeString();
-      return 'Welcome ' + this.loginService.getLogedInName() + ' , you logged in at ' + now + ' , ' +
+      return 'Welcome ' + this.loginService.getLogedInName()  + ' , ' +
              ' your permission is : ' + this.loginService.getPermission();
     }
   }

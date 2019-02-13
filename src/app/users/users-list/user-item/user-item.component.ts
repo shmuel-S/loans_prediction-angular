@@ -18,6 +18,8 @@ export class UserItemComponent implements OnInit {
   }
 
   onDelete() {
+    console.log(this.user);
+    console.log('- deleted -');
     this.userService.deleteUser(this.index);
   }
 

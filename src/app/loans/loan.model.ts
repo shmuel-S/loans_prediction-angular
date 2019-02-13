@@ -1,5 +1,6 @@
 export class Loan {
 
+  public Id: string;
   public Full_Name: string;
   public Approved: boolean;
   public Loan_Status: string;
