@@ -11,13 +11,8 @@
         <h5>Email: {{user.Email}} ,</h5>
         <h5>Permission: {{user.Permission}} .</h5>
 
-        <div  style="padding-left: 30px;">
-          <button class="btn btn-success" (click)="onGetPass()">Get Password</button>
-          <button class="btn btn-primary">Update</button>
-          <button class="btn btn-danger">Delete</button>
-        </div>
-
-
+        <button class="btn btn-primary col-sm-offset-2">Update</button>
+        <button class="btn btn-danger" (click)="onDelete()">Delete</button>
 
       </div>
     </div>

@@ -1,12 +1,10 @@
-<div style="padding-top: 30px;">
-  <div *ngIf="!isLoggedIn" class="alert alert-danger" style="width: 500px">
-    <!--<h3 *ngIf="!isLoggedIn" style="color: #B33A3A; font-weight: bold; ">{{ homeMessage() }}</h3>-->
-    <h4 style="padding-top: 10px; font-weight: bold; font-family: 'Merriweather', serif;">{{ homeMessage() }}</h4>
+<div>
+  <div *ngIf="!isLoggedIn" style="color: darkgray">
+    <h3 style="padding-top: 10px; font-weight: bold; font-family: 'Merriweather', serif;">{{ homeMessage() }}</h3>
   </div>
 
-  <div *ngIf="isLoggedIn" class="alert alert-success" style="width: 500px">
-    <!--<h3 *ngIf="!isLoggedIn" style="color: #B33A3A; font-weight: bold; ">{{ homeMessage() }}</h3>-->
-    <h4 style="padding-top: 10px; font-weight: bold; font-family: 'Merriweather', serif;">{{ homeMessage() }}</h4>
+  <div *ngIf="isLoggedIn" style="color: darkgray">
+    <h3 style="padding-top: 10px; font-weight: bold; font-family: 'Merriweather', serif;">{{ homeMessage() }}</h3>
   </div>
 </div>
 

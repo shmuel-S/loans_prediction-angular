@@ -40,4 +40,8 @@ export class UserService {
     return this.users[index];
   }
 
+  deleteUser(index: number) {
+    this.users.splice(index);
+  }
+
 }
