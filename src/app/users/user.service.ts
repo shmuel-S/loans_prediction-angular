@@ -1,33 +1,21 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {User} from './user.model';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 
 @Injectable()
 export class UserService {
 
   usersChanged = new Subject<User[]>();
-  private users: User[] = [
-    {
-      Full_Name: 'Shmuel Shmila',
-      Email: 'shmuelshmila0@gmail.com',
-      Password: '123456',
-      Permission: 'Admin'
-    },
-    {
-      Full_Name: 'david davido',
-      Email: 'shmuelshmila1@gmail.com',
-      Password: '1234567',
-      Permission: 'Worker'
-    },
-    {
-      Full_Name: 'moshe misha',
-      Email: 'shmuelshmila2@gmail.com',
-      Password: '12345678',
-      Permission: 'Manager'
-    }];
+  private users: User[] = [];
 
   addUser(user: User) {
+    firebase.auth().createUserWithEmailAndPassword(user.Email , user.Password)
+      .catch(
+      error => console.log(error)
+    );
     this.users.push(user);
     this.usersChanged.next(this.users.slice());
   }
@@ -42,6 +30,11 @@ export class UserService {
 
   deleteUser(index: number) {
     this.users.splice(index);
+  }
+
+  setUsers(users: User[]) {
+    this.users = users;
+    this.usersChanged.next(this.users.slice());
   }
 
 }

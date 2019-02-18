@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {User} from '../user.model';
 import {Subscription} from 'rxjs';
 import {UserService} from '../user.service';
+import {DataStorageService} from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-users-list',
@@ -13,9 +14,11 @@ export class UsersListComponent implements OnInit, OnDestroy {
   Users: User[];
   subscription: Subscription;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
+    this.dataStorageService.getUsers();
     this.subscription = this.userService.usersChanged
       .subscribe(
         (users: User[]) => {

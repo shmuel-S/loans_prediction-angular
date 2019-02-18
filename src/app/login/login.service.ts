@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 import {UserService} from '../users/user.service';
 import {User} from '../users/user.model';
@@ -18,7 +20,14 @@ export class LoginService {
 
 
   logIn(user: User) {
-    this.LogedInUser = user;
+    firebase.auth().signInWithEmailAndPassword(user.Email, user.Password)
+      .then(
+        response => console.log(response)
+      )
+      .catch(
+        error => console.log(error),
+      );
+    this.LogedInUser = this.findUser(user);
     this.isLoggedIn = true;
   }
 
@@ -31,10 +40,12 @@ export class LoginService {
   }
 
   getLogedInName() {
-    return this.LogedInUser.Full_Name;
+    if (this.LogedInUser !== undefined) {
+      return this.LogedInUser.Full_Name;
+    }
   }
 
-  check(loginUser: User) {
+  findUser(loginUser: User) {
     if ( loginUser !== undefined && this.userService.getUsers() !== undefined) {
       for (const user of this.userService.getUsers()) {
         if (user.Email === loginUser.Email && user.Password === loginUser.Password) {
