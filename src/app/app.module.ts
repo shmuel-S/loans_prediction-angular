@@ -22,7 +22,8 @@ import {NavigateService} from './header/navigate/navigate.service';
 import {PermissionGuard} from './permission/premission-guard.service';
 import { HomeComponent } from './home/home.component';
 import {DataStorageService} from './shared/data-storage.service';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import {HttpModule} from '@angular/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [LoanService, UserService, LoginService, NavigateService, PermissionGuard, DataStorageService],
   bootstrap: [AppComponent]

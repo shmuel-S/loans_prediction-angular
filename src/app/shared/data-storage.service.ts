@@ -1,45 +1,44 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from 'selenium-webdriver/http';
-import {Http, Response} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import {LoanService} from '../loans/loan.service';
 import {Loan} from '../loans/loan.model';
 import {UserService} from '../users/user.service';
 import {User} from '../users/user.model';
 
+
 @Injectable()
 export class DataStorageService {
 
-  constructor(private http: Http,
+  constructor(private httpClient: HttpClient,
               private loanService: LoanService,
               private userService: UserService) {}
 
   saveLoans() {
-    return this.http.put('https://ng-loans-prediction.firebaseio.com/loans.json', this.loanService.getLoans());
+    return this.httpClient.put('https://ng-loans-prediction.firebaseio.com/loans.json', this.loanService.getLoans());
   }
 
   getLoans() {
-     this.http.get('https://ng-loans-prediction.firebaseio.com/loans.json')
+     this.httpClient.get<Loan[]>('https://ng-loans-prediction.firebaseio.com/loans.json')
       .subscribe(
-        (response: Response) => {
-          const loans: Loan[] = response.json();
+        (loans) => {
           this.loanService.setLoans(loans);
         }
       );
   }
   saveUsers() {
-    return this.http.put('https://ng-loans-prediction.firebaseio.com/users.json', this.userService.getUsers());
+    return this.httpClient.put('https://ng-loans-prediction.firebaseio.com/users.json', this.userService.getUsers());
   }
 
   getUsers() {
-    this.http.get('https://ng-loans-prediction.firebaseio.com/users.json')
+    this.httpClient.get<User[]>('https://ng-loans-prediction.firebaseio.com/users.json')
       .subscribe(
-        (response: Response) => {
-          const users: User[] = response.json();
+        (users) => {
           this.userService.setUsers(users);
         }
-      )
+      );
   }
 
   delete() {}
+
 
 }

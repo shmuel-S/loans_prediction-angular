@@ -32,13 +32,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loginService.logIn(this.loginForm.value);
-    this.login(this.loginForm.value.Permission);
-      this.login(this.loginService.getPermission());
-      this.router.navigate(['/']);
-    // } else {
-    //   console.log('email or password are incorrect');
-    // }
+     this.loginService.logIn(this.loginForm.value);
+        this.login(this.loginService.getPermission());
+
   }
 
 

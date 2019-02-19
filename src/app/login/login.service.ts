@@ -12,6 +12,7 @@ export class LoginService {
 
   private LogedInUser: User;
   private isLoggedIn = false;
+  token: string;
 
   constructor(private userService: UserService,
               private router: Router,
@@ -22,11 +23,18 @@ export class LoginService {
   logIn(user: User) {
     firebase.auth().signInWithEmailAndPassword(user.Email, user.Password)
       .then(
-        response => console.log(response)
+        response => {
+          this.router.navigate(['/']);
+          firebase.auth().currentUser.getIdToken()
+            .then(
+              (token: string) => this.token = token
+            );
+        }
       )
       .catch(
-        error => console.log(error),
-      );
+        error => {
+          console.log(error);
+        });
     this.LogedInUser = this.findUser(user);
     this.isLoggedIn = true;
   }
