@@ -14,8 +14,6 @@ import {DataStorageService} from '../shared/data-storage.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  LoginUser: User;
-
   isLoggedIn = false;
   role = '';
 
@@ -32,8 +30,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-     this.loginService.logIn(this.loginForm.value);
-        this.login(this.loginService.getPermission());
+       this.loginService.logIn(this.loginForm.value);
+       if (this.loginService.isLoggedInCheck()) {
+         this.login(this.loginService.getPermission());
+       }
 
   }
 
@@ -46,9 +46,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(role: string) {
-    this.navigateService.updateNavAfterAuth(role);
-    this.navigateService.updateLoginStatus(true);
-    this.role = role;
+      this.navigateService.updateNavAfterAuth(role);
+      this.navigateService.updateLoginStatus(true);
+      this.role = role;
   }
 
 }

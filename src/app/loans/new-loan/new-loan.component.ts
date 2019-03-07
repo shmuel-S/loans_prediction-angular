@@ -1,10 +1,12 @@
 import {Component, Injectable, OnInit} from '@angular/core';
-import { Response} from '@angular/http';
+import {Response} from '@angular/http';
 import {LoanService} from '../loan.service';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataStorageService} from '../../shared/data-storage.service';
-import { UUID } from 'angular2-uuid';
+import {UUID} from 'angular2-uuid';
+import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-new-loan',
@@ -18,7 +20,9 @@ export class NewLoanComponent implements OnInit {
 
   constructor(private loanService: LoanService,
               private router: Router,
-              private dataStorageService: DataStorageService) {}
+              private dataStorageService: DataStorageService,
+              private httpClient: HttpClient) {
+  }
 
   ngOnInit() {
     this.initForm();
@@ -27,6 +31,17 @@ export class NewLoanComponent implements OnInit {
 
   onSubmit() {
     this.loanForm.value.Id = UUID.UUID();
+
+    this.httpClient.post('https://cors-anywhere.herokuapp.com/loans-prediction.herokuapp.com/model/predict', this.loanForm.value,
+      {
+        responseType: 'json'
+      }
+    )
+      .subscribe(
+        (json) => console.log(json)
+      );
+
+
     this.loanService.addLoan(this.loanForm.value);
     this.dataStorageService.saveLoans()
       .subscribe(

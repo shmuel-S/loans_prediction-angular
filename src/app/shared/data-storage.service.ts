@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+
 import {LoanService} from '../loans/loan.service';
 import {Loan} from '../loans/loan.model';
 import {UserService} from '../users/user.service';
@@ -37,8 +38,4 @@ export class DataStorageService {
         }
       );
   }
-
-  delete() {}
-
-
 }

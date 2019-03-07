@@ -11,8 +11,7 @@ import {NavigateService} from '../header/navigate/navigate.service';
 export class LoginService {
 
   private LogedInUser: User;
-  private isLoggedIn = false;
-  token: string;
+  public isLoggedIn = false;
 
   constructor(private userService: UserService,
               private router: Router,
@@ -25,18 +24,16 @@ export class LoginService {
       .then(
         response => {
           this.router.navigate(['/']);
-          firebase.auth().currentUser.getIdToken()
-            .then(
-              (token: string) => this.token = token
-            );
         }
       )
       .catch(
         error => {
           console.log(error);
         });
-    this.LogedInUser = this.findUser(user);
+
     this.isLoggedIn = true;
+    this.LogedInUser = this.findUser(user);
+
   }
 
   getPermission() {
@@ -64,7 +61,7 @@ export class LoginService {
     return undefined;
   }
   isLoggedInCheck() {
-    return this.isLoggedIn;
+    return this.LogedInUser !== undefined;
   }
 
   logOut() {
