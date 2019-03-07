@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {DataStorageService} from '../../shared/data-storage.service';
 import {Response} from '@angular/http';
 import {User} from '../user.model';
+import {MsgService} from '../../shared/msg/msg.service';
 
 @Component({
   selector: 'app-new-user',
@@ -20,7 +21,8 @@ export class NewUserComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router: Router,
-              private dataStorageService: DataStorageService) {
+              private dataStorageService: DataStorageService,
+              private msgService: MsgService) {
   }
 
   ngOnInit() {
@@ -28,6 +30,12 @@ export class NewUserComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.userService.findUser(this.userForm.value) !== undefined) {
+      this.msgService.setIsError(true);
+      this.msgService.setMsg('User already exists');
+      this.router.navigate(['message']);
+      return;
+    }
     if (this.userForm.value.Password === this.userForm.value.Confirm_Password) {
         this.newUser = new User(this.userForm.value.Full_Name, this.userForm.value.Email, this.userForm.value.Password,
         this.userForm.value.Permission);
@@ -37,9 +45,13 @@ export class NewUserComponent implements OnInit {
            (response: Response) => {
                    // console.log(response);
            });
-      this.router.navigate(['/']);
+      this.msgService.setIsError(false);
+      this.msgService.setMsg('New User Created');
+      this.router.navigate(['message']);
     } else {
-         console.log('Password not confirm');
+      this.msgService.setIsError(true);
+      this.msgService.setMsg('Password not confirm');
+      this.router.navigate(['message']);
       }
   }
 

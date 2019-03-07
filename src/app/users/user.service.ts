@@ -37,4 +37,15 @@ export class UserService {
     this.usersChanged.next(this.users.slice());
   }
 
+  findUser(searchUser: User) {
+    if ( searchUser !== undefined && this.getUsers() !== undefined) {
+      for (const user of this.getUsers()) {
+        if (searchUser.Email === user.Email && searchUser.Password === user.Password) {
+          return user;
+        }
+      }
+    }
+    return undefined;
+  }
+
 }

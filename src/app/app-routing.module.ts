@@ -7,6 +7,7 @@ import {UsersListComponent} from './users/users-list/users-list.component';
 import {LoginComponent} from './login/login.component';
 import {PermissionGuard} from './permission/premission-guard.service';
 import {HomeComponent} from './home/home.component';
+import {MsgComponent} from './shared/msg/msg.component';
 
 const appRoutes: Routes = [
   { path: 'new-user', component: NewUserComponent,
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     canActivate: [PermissionGuard]},
 
   { path: 'log-in', component: LoginComponent},
-  { path: '', component: HomeComponent}
+  { path: '', component: HomeComponent},
+  { path: 'message', component: MsgComponent}
 ]
 
 @NgModule({

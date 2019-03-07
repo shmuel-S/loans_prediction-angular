@@ -23,6 +23,8 @@ import {PermissionGuard} from './permission/premission-guard.service';
 import { HomeComponent } from './home/home.component';
 import {DataStorageService} from './shared/data-storage.service';
 import {HttpClientModule} from '@angular/common/http';
+import { MsgComponent } from './shared/msg/msg.component';
+import {MsgService} from './shared/msg/msg.service';
 
 
 
@@ -40,7 +42,8 @@ import {HttpClientModule} from '@angular/common/http';
     UserItemComponent,
     DropdownDirective,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    MsgComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [LoanService, UserService, LoginService, NavigateService, PermissionGuard, DataStorageService],
+  providers: [LoanService, UserService, LoginService, NavigateService, PermissionGuard, DataStorageService, MsgService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ import {UserService} from '../users/user.service';
 import {User} from '../users/user.model';
 import {Router} from '@angular/router';
 import {NavigateService} from '../header/navigate/navigate.service';
+import {MsgService} from '../shared/msg/msg.service';
 
 @Injectable()
 export class LoginService {
@@ -15,7 +16,8 @@ export class LoginService {
 
   constructor(private userService: UserService,
               private router: Router,
-              private navigateService: NavigateService) {
+              private navigateService: NavigateService,
+              private msgService: MsgService) {
   }
 
 
@@ -29,6 +31,9 @@ export class LoginService {
       .catch(
         error => {
           console.log(error);
+          this.msgService.setIsError(true);
+          this.msgService.setMsg('Email or Password Incorrect');
+          this.router.navigate(['message']);
         });
 
     this.isLoggedIn = true;
