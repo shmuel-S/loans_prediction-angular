@@ -6,6 +6,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataStorageService} from '../../shared/data-storage.service';
 import {UUID} from 'angular2-uuid';
 import {HttpClient} from '@angular/common/http';
+import {MsgService} from '../../shared/msg/msg.service';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class NewLoanComponent implements OnInit {
   constructor(private loanService: LoanService,
               private router: Router,
               private dataStorageService: DataStorageService,
-              private httpClient: HttpClient) {
+              private httpClient: HttpClient,
+              private msgService: MsgService) {
   }
 
   ngOnInit() {
@@ -38,20 +40,24 @@ export class NewLoanComponent implements OnInit {
       }
     )
       .subscribe(
-        (json) => console.log(json)
+        (result) => {
+          if (result['prediction'] === 1) {
+            this.msgService.setIsError(false);
+            this.msgService.setMsg(`The loan will be repaid with a probability of ${result['probability'] * 100}%`);
+          } else {
+            this.msgService.setIsError(true);
+            this.msgService.setMsg('The loan will not be repaid');
+          }
+          this.router.navigate(['message']);
+        }
       );
 
 
     this.loanService.addLoan(this.loanForm.value);
     this.dataStorageService.saveLoans()
       .subscribe(
-        (response: Response) => {
-          console.log(response);
-        }
+        (response: Response) => {}
       );
-    this.router.navigate(['/']);
-
-
   }
 
   private initForm() {
