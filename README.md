@@ -1,27 +1,29 @@
 # LoansPredictionApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+## introduction
 
-## Development server
+An application designed for banks , 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+When a client comes to the bank and wants to take out a loan,
+he provides details to the bank employee
 
-## Code scaffolding
+The information is entered into the application and returns a predictive answer 
+whether the client will succeed in repaying the loan or not
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Development tools
 
-## Build
+The application was written in `Angular` for client side and `NodeJS` for server , 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Uses `firebase` as DB to manage information about loans and users
+, in addition to management authentication.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## services
+Using a model for `machine learning` which is storage in Python server (`flask`)
+and deploy with `heroku` , acts as an API when the application sends API requests and 
+receives a prediction response and presents it to a client.
 
-## Running end-to-end tests
+## links
+[The machine learning model (flask)](https://github.com/netanel246/loans-prediction-python)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
