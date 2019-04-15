@@ -21,6 +21,7 @@ export class UserItemComponent implements OnInit {
 
   onDelete() {
     this.userService.deleteUser(this.index);
+    console.log(this.userService.getUsers());
     this.dataStorageService.saveUsers();
     console.log(this.user);
     console.log('- deleted -');

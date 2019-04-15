@@ -9,13 +9,18 @@ import 'firebase/auth';
 export class UserService {
 
   usersChanged = new Subject<User[]>();
-  private users: User[] = [];
+  private users: User[] = [{
+    Full_Name: 'shmuel shmila',
+    Email: 'admin@example.com',
+    Password: '123456',
+    Permission: 'Admin'
+  }];
 
   addUser(user: User) {
     firebase.auth().createUserWithEmailAndPassword(user.Email , user.Password)
       .catch(
-      error => console.log(error)
-    );
+        error => console.log(error)
+      );
     this.users.push(user);
     this.usersChanged.next(this.users.slice());
   }

@@ -34,7 +34,7 @@ export class DataStorageService {
     this.httpClient.get<User[]>('https://ng-loans-prediction.firebaseio.com/users.json')
       .subscribe(
         (users) => {
-          this.userService.setUsers(users);
+            this.userService.setUsers(users);
         }
       );
   }

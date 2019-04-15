@@ -17,6 +17,5 @@ export class AppComponent implements OnInit {
       apiKey: HideInfo.getApiKey(),
       authDomain: HideInfo.getAuthDomain()
     });
-
   }
 }

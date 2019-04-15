@@ -41,12 +41,15 @@ export class NewLoanComponent implements OnInit {
     )
       .subscribe(
         (result) => {
-          if (result['prediction'] === 1) {
+          if (result['prediction'] === 1 && result['probability'] * 100 >= 70) {
             this.msgService.setIsError(false);
             this.msgService.setMsg(`The loan will be repaid with a probability of ${result['probability'] * 100}%`);
+          } else if (result['prediction'] === 1 && result['probability'] * 100 < 70) {
+            this.msgService.setIsError(true);
+            this.msgService.setMsg('There is no accurate prediction');
           } else {
             this.msgService.setIsError(true);
-            this.msgService.setMsg('The loan will not be repaid');
+            this.msgService.setMsg(`The loan will not be repaid with a probability of ${result['probability'] * 100}%`);
           }
           this.router.navigate(['message']);
         }
